@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod
 import java.io.IOException
 
 open class BaseTest {
-    @kotlin.jvm.JvmField
+    @JvmField
     protected var driver: AppiumDriver<*>? = null
     protected var reader: PropertiesReader = PropertiesReader()
 

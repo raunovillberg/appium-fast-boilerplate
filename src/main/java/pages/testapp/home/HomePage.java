@@ -1,9 +1,10 @@
 package pages.testapp.home;
 
-import core.page.BasePage;
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import core.page.BasePage;
+import io.appium.java_client.AppiumDriver;
 
 public class HomePage extends BasePage {
     private final By firstNumber = By.name("IntegerA");

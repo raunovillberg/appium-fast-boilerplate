@@ -10,7 +10,7 @@ repositories {
     mavenCentral()
 }
 
-tasks.withType(Test) {
+tasks.withType(Test).configureEach {
     systemProperties = [
             tag   : System.getProperty('tag', 'NONE'),
             target: System.getProperty('target', 'NONE')
@@ -22,7 +22,7 @@ compileTestJava {
     options.encoding = "UTF-8"
 }
 
-task runTests(type: Test) {
+tasks.register('runTests', Test) {
     useTestNG {
         useDefaultListeners = false
         testLogging.showStandardStreams = true

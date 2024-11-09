@@ -17,8 +17,7 @@ public class CapabilitiesHelper {
 
     private static HashMap convertCapsToMap(String caps) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        HashMap map = mapper.readValue(caps, HashMap.class);
-        return map;
+        return mapper.readValue(caps, HashMap.class);
     }
 
     private static void updateAbsolutePath(HashMap map) {

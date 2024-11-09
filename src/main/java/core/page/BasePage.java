@@ -1,6 +1,5 @@
 package core.page;
 
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,8 +7,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+import io.appium.java_client.AppiumDriver;
+
 public class BasePage {
-    protected AppiumDriver driver;
+    protected final AppiumDriver driver;
 
     public BasePage(AppiumDriver driver) {
         this.driver = driver;
@@ -23,7 +24,7 @@ public class BasePage {
         return driver.findElement(by);
     }
 
-    public List<WebElement> getElements(By by) {
+    public List getElements(By by) {
         return driver.findElements(by);
     }
 

@@ -1,14 +1,14 @@
 package core.utils;
 
-import constants.Target;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
 import java.util.Properties;
 
+import constants.Target;
+
 public class PropertiesReader {
-    Properties props = new Properties();
+    final Properties props = new Properties();
 
     public PropertiesReader() {
         try {
