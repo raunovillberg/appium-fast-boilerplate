@@ -4,12 +4,9 @@ import constants.Target
 import io.appium.java_client.AppiumDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.DesiredCapabilities
-import java.io.IOException
-import java.net.MalformedURLException
 import java.net.URI
 
 class DriverManager {
-    @Throws(IOException::class)
     fun getInstance(target: Target): AppiumDriver<WebElement>? {
         println("Getting instance of: " + target.name)
         return when (target) {
@@ -18,7 +15,6 @@ class DriverManager {
         }
     }
 
-    @Throws(IOException::class)
     private fun getAndroidDriver(): AppiumDriver<WebElement>? = getDriver(
         mapOf(
             "platformName" to "android",
@@ -31,7 +27,6 @@ class DriverManager {
         )
     )
 
-    @Throws(IOException::class)
     private fun getIOSDriver(): AppiumDriver<WebElement>? = getDriver(
         mapOf(
             "platformName" to "iOS",
@@ -42,19 +37,8 @@ class DriverManager {
     )
 
     private fun getDriver(map: Map<String, *>): AppiumDriver<WebElement>? {
-        val desiredCapabilities = DesiredCapabilities(map)
-        try {
-            val url = URI("http://127.0.0.1:4723").toURL()
-            driver = AppiumDriver<WebElement>(url, desiredCapabilities)
-        } catch (e: MalformedURLException) {
-            e.printStackTrace()
-        }
-
-        return driver
-    }
-
-    companion object {
-        private var driver: AppiumDriver<WebElement>? = null
+        val url = URI("http://127.0.0.1:4723").toURL()
+        return AppiumDriver<WebElement>(url, DesiredCapabilities(map))
     }
 }
 
