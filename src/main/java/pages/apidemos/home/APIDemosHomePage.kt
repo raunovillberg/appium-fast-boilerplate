@@ -3,9 +3,10 @@ package pages.apidemos.home
 import core.page.BasePage
 import io.appium.java_client.AppiumDriver
 import org.openqa.selenium.By
+import org.openqa.selenium.WebElement
 import pages.apidemos.logtextbox.LogTextBoxPage
 
-class APIDemosHomePage(driver: AppiumDriver<*>?) : BasePage(driver) {
+class APIDemosHomePage(driver: AppiumDriver<WebElement>) : BasePage(driver) {
     private val textButton = By.xpath("//android.widget.TextView[@content-desc=\"Text\"]")
     private val logTextBoxButton = By.xpath("//android.widget.TextView[@content-desc=\"LogTextBox\"]")
 
