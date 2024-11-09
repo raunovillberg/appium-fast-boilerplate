@@ -2,10 +2,10 @@ package pages.testapp.home
 
 import core.extensions.waitForElementToBePresent
 import io.appium.java_client.AppiumDriver
+import io.appium.java_client.MobileElement
 import org.openqa.selenium.By
-import org.openqa.selenium.WebElement
 
-class HomePage(private val driver: AppiumDriver<WebElement>) {
+class HomePage(private val driver: AppiumDriver<MobileElement>) {
     private val firstNumber = By.name("IntegerA")
     private val secondNumber = By.name("IntegerB")
     private val computeSumButton = By.name("ComputeSumButton")

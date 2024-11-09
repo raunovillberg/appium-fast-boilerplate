@@ -2,12 +2,12 @@ package core.driver
 
 import constants.Target
 import io.appium.java_client.AppiumDriver
-import org.openqa.selenium.WebElement
+import io.appium.java_client.MobileElement
 import org.openqa.selenium.remote.DesiredCapabilities
 import java.net.URI
 
 class DriverManager {
-    fun getInstance(target: Target): AppiumDriver<WebElement>? {
+    fun getInstance(target: Target): AppiumDriver<MobileElement> {
         println("Getting instance of: " + target.name)
         return when (target) {
             Target.ANDROID -> getAndroidDriver()
@@ -15,7 +15,7 @@ class DriverManager {
         }
     }
 
-    private fun getAndroidDriver(): AppiumDriver<WebElement>? = getDriver(
+    private fun getAndroidDriver(): AppiumDriver<MobileElement> = getDriver(
         mapOf(
             "platformName" to "android",
             "automationName" to "uiautomator2",
@@ -27,7 +27,7 @@ class DriverManager {
         )
     )
 
-    private fun getIOSDriver(): AppiumDriver<WebElement>? = getDriver(
+    private fun getIOSDriver(): AppiumDriver<MobileElement> = getDriver(
         mapOf(
             "platformName" to "iOS",
             "automationName" to "XCUITest",
@@ -36,9 +36,9 @@ class DriverManager {
         )
     )
 
-    private fun getDriver(map: Map<String, *>): AppiumDriver<WebElement>? {
+    private fun getDriver(map: Map<String, *>): AppiumDriver<MobileElement> {
         val url = URI("http://127.0.0.1:4723").toURL()
-        return AppiumDriver<WebElement>(url, DesiredCapabilities(map))
+        return AppiumDriver<MobileElement>(url, DesiredCapabilities(map))
     }
 }
 
