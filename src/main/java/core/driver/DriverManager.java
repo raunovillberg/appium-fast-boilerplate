@@ -18,17 +18,16 @@ public class DriverManager {
     // For Appium < 2.0, append /wd/hub to the APPIUM_SERVER_URL
     final String APPIUM_SERVER_URL = "http://127.0.0.1:4723";
 
-    public AppiumDriver getInstance(Target target) throws IOException, PlatformNotSupportException {
+    public AppiumDriver getInstance(Target target) throws IOException {
         System.out.println("Getting instance of: " + target.name());
         return switch (target) {
             case ANDROID -> getAndroidDriver();
             case IOS -> getIOSDriver();
-            default -> throw new PlatformNotSupportException("Please provide supported target");
         };
     }
 
     private AppiumDriver getAndroidDriver() throws IOException {
-        HashMap map = readAndMakeCapabilities("android-caps.json");
+        var map = readAndMakeCapabilities("android-caps.json");
         return getDriver(map);
     }
 

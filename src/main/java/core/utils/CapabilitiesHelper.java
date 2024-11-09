@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class CapabilitiesHelper {
-    public static HashMap readAndMakeCapabilities(String fileName) throws IOException {
+    public static HashMap<String, String> readAndMakeCapabilities(String fileName) throws IOException {
         String caps = new FileReader().readFile(fileName);
-        HashMap map = convertCapsToMap(caps);
+        HashMap<String, String> map = convertCapsToMap(caps);
 
         updateAbsolutePath(map);
         return map;
@@ -20,8 +20,8 @@ public class CapabilitiesHelper {
         return mapper.readValue(caps, HashMap.class);
     }
 
-    private static void updateAbsolutePath(HashMap map) {
-        String path = (String) map.get("app");
+    private static void updateAbsolutePath(HashMap<String, String> map) {
+        String path = map.get("app");
         File appPath = new File(path);
         map.put("app", appPath.getAbsolutePath());
     }
