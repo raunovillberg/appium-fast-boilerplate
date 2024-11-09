@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 
-open class BasePage(protected val driver: AppiumDriver<*>) {
+open class BasePage(protected val driver: AppiumDriver<WebElement>) {
 
     fun click(elem: WebElement?) {
         elem?.click()

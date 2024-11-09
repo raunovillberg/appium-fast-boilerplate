@@ -10,7 +10,7 @@ class AndroidTest : BaseTest() {
             .openText()
             .tapOnLogTextBox()
             .tapOnAddButton()
-            .logText
+            .getLogText()
 
         Assert.assertEquals(logText, "This is a test")
     }
