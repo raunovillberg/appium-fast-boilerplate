@@ -20,7 +20,8 @@ public class PropertiesReader {
 
     public Target getTarget() {
         String target = System.getProperty("target");
-
+        if (target == null)
+            target = "ANDROID";
         if (Objects.equals(target, "NONE")) {
             return Target.valueOf(props.getProperty("target"));
         } else {

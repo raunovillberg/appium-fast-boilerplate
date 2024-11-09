@@ -1,9 +1,9 @@
 {
   "platformName": "android",
   "automationName": "uiautomator2",
-  "platformVersion": "12",
+  "platformVersion": "15",
   "deviceName": "Automation",
-  "app": "src/test/resources/ApiDemos-debug.apk",
+  "app": "src/main/resources/app-debug.apk",
   "appPackage": "io.appium.android.apis",
   "appActivity": "io.appium.android.apis.ApiDemos"
 }
