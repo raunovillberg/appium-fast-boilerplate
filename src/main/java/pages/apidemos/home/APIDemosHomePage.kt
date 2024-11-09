@@ -6,9 +6,8 @@ import org.openqa.selenium.By
 import pages.apidemos.logtextbox.LogTextBoxPage
 
 class APIDemosHomePage(driver: AppiumDriver<*>?) : BasePage(driver) {
-    private val textButton: By = By.xpath("//android.widget.TextView[@content-desc=\"Text\"]")
-    private val logTextBoxButton: By =
-        By.xpath("//android.widget.TextView[@content-desc=\"LogTextBox\"]")
+    private val textButton = By.xpath("//android.widget.TextView[@content-desc=\"Text\"]")
+    private val logTextBoxButton = By.xpath("//android.widget.TextView[@content-desc=\"LogTextBox\"]")
 
     fun openText(): APIDemosHomePage {
         val text = getElement(textButton)
