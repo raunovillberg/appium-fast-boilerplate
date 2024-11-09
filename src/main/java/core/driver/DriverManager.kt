@@ -8,7 +8,6 @@ import org.openqa.selenium.remote.DesiredCapabilities
 import java.io.IOException
 import java.net.MalformedURLException
 import java.net.URI
-import java.util.HashMap
 
 class DriverManager {
     @Throws(IOException::class)
@@ -32,8 +31,8 @@ class DriverManager {
         return getDriver(map)
     }
 
-    private fun getDriver(map: HashMap<String, String>): AppiumDriver<WebElement>? {
-        val desiredCapabilities: DesiredCapabilities = DesiredCapabilities(map)
+    private fun getDriver(map: Map<String, *>): AppiumDriver<WebElement>? {
+        val desiredCapabilities = DesiredCapabilities(map)
 
         try {
             val url = URI("http://127.0.0.1:4723").toURL()

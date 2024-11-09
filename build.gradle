@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '2.0.21'
 }
 
 group 'io.automationhacks'
@@ -39,6 +40,7 @@ dependencies {
     implementation 'com.fasterxml:jackson-xml-databind:0.6.2'
     testImplementation group: 'org.testng', name: 'testng', version: '7.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3'
 }
 kotlin {
     jvmToolchain(21)
