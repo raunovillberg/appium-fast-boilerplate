@@ -34,11 +34,11 @@ tasks.register('runTests', Test) {
 
 
 dependencies {
-    implementation 'io.appium:java-client:7.5.1'
+    implementation 'io.appium:java-client:9.3.0'
     implementation 'org.seleniumhq.selenium:selenium-server:3.141.59'
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
-    testImplementation group: 'org.testng', name: 'testng', version: '7.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testImplementation 'org.testng:testng:7.9.0'
 }
 kotlin {
     jvmToolchain(21)

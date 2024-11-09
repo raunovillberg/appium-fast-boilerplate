@@ -1,10 +1,9 @@
 package pages.apidemos.logtextbox
 
 import io.appium.java_client.AppiumDriver
-import io.appium.java_client.MobileElement
 import org.openqa.selenium.By
 
-class LogTextBoxPage(private val driver: AppiumDriver<MobileElement>) {
+class LogTextBoxPage(private val driver: AppiumDriver) {
     private val addButton = By.id("io.appium.android.apis:id/add")
     private val logTextButtonArea = By.id("io.appium.android.apis:id/text")
     private val doNothingButton = By.xpath("//android.widget.Button[@content-desc=\"Do nothing\"]")

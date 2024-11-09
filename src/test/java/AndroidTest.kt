@@ -1,7 +1,7 @@
 import constants.TestGroups
 import core.extensions.waitForElementToBePresent
 import core.extensions.waitForElementToBeVisible
-import io.appium.java_client.MobileBy
+import io.appium.java_client.AppiumBy
 import org.testng.Assert
 import org.testng.annotations.Test
 import pages.apidemos.home.APIDemosHomePage
@@ -31,21 +31,21 @@ class AndroidTest : BaseTest() {
 
     @Test(groups = [TestGroups.ANDROID])
     fun test_OpenDialog_TapOkButton_DialogCloses() {
-        driver.findElement(MobileBy.AccessibilityId("App"))
+        driver.findElement(AppiumBy.ByAccessibilityId("App"))
             .click()
-        driver.findElement(MobileBy.AccessibilityId("Alert Dialogs"))
+        driver.findElement(AppiumBy.ByAccessibilityId("Alert Dialogs"))
             .click()
 
-        val openDialogBy = MobileBy.AccessibilityId("OK Cancel dialog with a message")
+        val openDialogBy = AppiumBy.ByAccessibilityId("OK Cancel dialog with a message")
         driver.findElement(openDialogBy)
             .click()
 
-        val dialogBy = MobileBy.id("android:id/buttonPanel")
+        val dialogBy = AppiumBy.id("android:id/buttonPanel")
         dialogBy.waitForElementToBePresent(driver)
         val dialogElement = driver.findElement(dialogBy)
         dialogElement.waitForElementToBeVisible(driver)
 
-        driver.findElement(MobileBy.id("android:id/button1")).click()
+        driver.findElement(AppiumBy.id("android:id/button1")).click()
 
         openDialogBy.waitForElementToBePresent(driver)
         Assert.assertNotNull(driver.findElement(openDialogBy))
