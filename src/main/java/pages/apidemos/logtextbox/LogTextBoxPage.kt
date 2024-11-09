@@ -7,13 +7,20 @@ import org.openqa.selenium.WebElement
 class LogTextBoxPage(private val driver: AppiumDriver<WebElement>) {
     private val addButton = By.id("io.appium.android.apis:id/add")
     private val logTextButtonArea = By.id("io.appium.android.apis:id/text")
+    private val doNothingButton = By.xpath("//android.widget.Button[@content-desc=\"Do nothing\"]")
 
     fun tapOnAddButton(): LogTextBoxPage {
         driver.findElement(addButton)?.click()
         return this
     }
 
-    fun getLogText(): String {
-        return driver.findElement(logTextButtonArea)!!.text!!.trim { it <= ' ' }
+    fun getLogText(): String? {
+        return driver.findElement(logTextButtonArea)?.text?.trim { it <= ' ' }
+    }
+
+    fun tapOnDoNothingButton(): LogTextBoxPage {
+        val element = driver.findElement(doNothingButton)!!
+        element.click()
+        return this
     }
 }
