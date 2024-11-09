@@ -10,7 +10,6 @@ import java.net.URL;
 import java.util.HashMap;
 
 import constants.Target;
-import exceptions.PlatformNotSupportException;
 import io.appium.java_client.AppiumDriver;
 
 public class DriverManager {

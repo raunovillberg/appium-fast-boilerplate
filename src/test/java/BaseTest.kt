@@ -1,7 +1,6 @@
 import constants.Target
 import core.driver.DriverManager
 import core.utils.PropertiesReader
-import exceptions.PlatformNotSupportException
 import io.appium.java_client.AppiumDriver
 import org.testng.ITestContext
 import org.testng.annotations.AfterMethod
@@ -21,8 +20,6 @@ open class BaseTest {
             val target = context.getAttribute("target") as Target
             driver = DriverManager().getInstance(target)
         } catch (e: IOException) {
-            e.printStackTrace()
-        } catch (e: PlatformNotSupportException) {
             e.printStackTrace()
         }
     }
