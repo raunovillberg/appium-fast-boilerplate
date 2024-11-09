@@ -29,6 +29,6 @@ open class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     fun teardown() {
-        driver!!.quit()
+        driver?.quit()
     }
 }
