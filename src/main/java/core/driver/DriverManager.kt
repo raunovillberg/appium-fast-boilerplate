@@ -20,10 +20,17 @@ class DriverManager {
     }
 
     @Throws(IOException::class)
-    private fun getAndroidDriver(): AppiumDriver<WebElement>? {
-        val map = CapabilitiesHelper.readAndMakeCapabilities("android-caps.json")
-        return getDriver(map)
-    }
+    private fun getAndroidDriver(): AppiumDriver<WebElement>? = getDriver(
+        mapOf(
+            "platformName" to "android",
+            "automationName" to "uiautomator2",
+            "platformVersion" to "15",
+            "deviceName" to "Automation",
+            "app" to "src/main/resources/app-debug.apk",
+            "appPackage" to "io.appium.android.apis",
+            "appActivity" to "io.appium.android.apis.ApiDemos"
+        )
+    )
 
     @Throws(IOException::class)
     private fun getIOSDriver(): AppiumDriver<WebElement>? {
