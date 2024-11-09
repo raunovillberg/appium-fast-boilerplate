@@ -1,11 +1,11 @@
 package pages.testapp.home
 
-import core.page.BasePage
+import core.extensions.waitForElementToBePresent
 import io.appium.java_client.AppiumDriver
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 
-class HomePage(driver: AppiumDriver<WebElement>) : BasePage(driver) {
+class HomePage(private val driver: AppiumDriver<WebElement>) {
     private val firstNumber = By.name("IntegerA")
     private val secondNumber = By.name("IntegerB")
     private val computeSumButton = By.name("ComputeSumButton")
@@ -19,26 +19,26 @@ class HomePage(driver: AppiumDriver<WebElement>) : BasePage(driver) {
     }
 
     fun typeFirstNumber(number: String): HomePage {
-        val firstNoElement = getElement(firstNumber)
-        type(firstNoElement!!, number)
+        val firstNoElement = driver.findElement(firstNumber)
+        firstNoElement!!.sendKeys(number)
         return this
     }
 
     fun typeSecondNumber(number: String): HomePage {
-        val secondNoElement = getElement(secondNumber)
-        type(secondNoElement!!, number)
+        val secondNoElement = driver.findElement(secondNumber)
+        secondNoElement!!.sendKeys(number)
         return this
     }
 
     fun compute(): HomePage {
-        val computeBtn = getElement(computeSumButton)
-        click(computeBtn)
+        val computeBtn = driver.findElement(computeSumButton)
+        computeBtn?.click()
         return this
     }
 
     fun getSum(): String? {
-        waitForElementToBePresent(answer)
-        return getText(getElement(answer)!!)
+        answer.waitForElementToBePresent(driver)
+        return driver.findElement(answer)!!.text
     }
 }
 
