@@ -38,3 +38,4 @@ output/
 
 ApiDemos-debug*
 TestApp.app*
+gradle.properties
