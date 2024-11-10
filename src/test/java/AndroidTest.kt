@@ -1,6 +1,5 @@
 import constants.TestGroups
 import core.extensions.waitForElementToBePresent
-import core.extensions.waitForElementToBeVisible
 import io.appium.java_client.AppiumBy
 import org.testng.Assert
 import org.testng.annotations.Test
@@ -33,21 +32,23 @@ class AndroidTest : BaseTest() {
     fun test_OpenDialog_TapOkButton_DialogCloses() {
         driver.findElement(AppiumBy.ByAccessibilityId("App"))
             .click()
+
         driver.findElement(AppiumBy.ByAccessibilityId("Alert Dialogs"))
             .click()
 
-        val openDialogBy = AppiumBy.ByAccessibilityId("OK Cancel dialog with a message")
-        driver.findElement(openDialogBy)
+        val openDialogLocator = AppiumBy.ByAccessibilityId("OK Cancel dialog with a message")
+        driver.findElement(openDialogLocator)
             .click()
 
-        val dialogBy = AppiumBy.id("android:id/buttonPanel")
-        dialogBy.waitForElementToBePresent(driver)
-        val dialogElement = driver.findElement(dialogBy)
-        dialogElement.waitForElementToBeVisible(driver)
+        // Dialog opens with an animation so wait for it to open
+        AppiumBy.id("android:id/buttonPanel")
+            .waitForElementToBePresent(driver)
 
-        driver.findElement(AppiumBy.id("android:id/button1")).click()
+        driver.findElement(AppiumBy.id("android:id/button1"))
+            .click()
 
-        openDialogBy.waitForElementToBePresent(driver)
-        Assert.assertNotNull(driver.findElement(openDialogBy))
+        // Wait for Dialog to disappear
+        openDialogLocator.waitForElementToBePresent(driver)
+        Assert.assertNotNull(driver.findElement(openDialogLocator))
     }
 }
