@@ -30,24 +30,27 @@ open class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     fun setupBeforeMethod() {
-        val capabilities = when (target) {
-            Target.ANDROID -> mapOf(
-                "platformName" to "android",
-                "automationName" to "uiautomator2",
-                "platformVersion" to "15",
-                "deviceName" to "Automation",
-                "app" to "src/main/resources/app-debug.apk",
-                "appPackage" to "io.appium.android.apis",
-                "appActivity" to "io.appium.android.apis.ApiDemos"
-            )
+        val capabilities =
+            when (target) {
+                Target.ANDROID ->
+                    mapOf(
+                        "platformName" to "android",
+                        "automationName" to "uiautomator2",
+                        "platformVersion" to "15",
+                        "deviceName" to "Automation",
+                        "app" to "src/main/resources/app-debug.apk",
+                        "appPackage" to "io.appium.android.apis",
+                        "appActivity" to "io.appium.android.apis.ApiDemos",
+                    )
 
-            Target.IOS -> mapOf(
-                "platformName" to "iOS",
-                "automationName" to "XCUITest",
-                "deviceName" to "iPhone 13",
-                "app" to "src/test/resources/TestApp.app"
-            )
-        }
+                Target.IOS ->
+                    mapOf(
+                        "platformName" to "iOS",
+                        "automationName" to "XCUITest",
+                        "deviceName" to "iPhone 13",
+                        "app" to "src/test/resources/TestApp.app",
+                    )
+            }
 
         val url = URI("http://127.0.0.1:4723").toURL()
         val options = UiAutomator2Options(DesiredCapabilities(capabilities))

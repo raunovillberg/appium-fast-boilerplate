@@ -10,7 +10,10 @@ class HomePage(private val driver: AppiumDriver) {
     private val computeSumButton = By.name("ComputeSumButton")
     private val answer = By.name("Answer")
 
-    fun enterTwoNumbersAndCompute(first: String, second: String): HomePage {
+    fun enterTwoNumbersAndCompute(
+        first: String,
+        second: String,
+    ): HomePage {
         typeFirstNumber(first)
         typeSecondNumber(second)
         compute()
@@ -40,4 +43,3 @@ class HomePage(private val driver: AppiumDriver) {
         return driver.findElement(answer)!!.text
     }
 }
-
