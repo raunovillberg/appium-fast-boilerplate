@@ -1,3 +1,12 @@
+# Setup : for running Android tests
+* Install appium - https://appium.io/docs/en/2.0/quickstart/install/
+* Install UiAutomator2 - https://appium.io/docs/en/2.0/quickstart/uiauto2-driver/
+* Open this project in Android Studio
+* Create and run an emulator named "Automation" with Android 15 / SDK 35
+* Run AndroidTest (src -> test -> java -> AndroidTest)
+
+
+# OLD README
 # Welcome 👋🏻 to Appium Fast Boilerplate
 
 ## Why this repo?
